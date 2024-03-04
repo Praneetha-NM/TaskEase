@@ -55,7 +55,7 @@ button:hover {
  }
 
  .input-container input {
-    padding-left: 150px;
+    padding-left: 130px;
     padding-right: 50px;
     padding-top:30px;
     padding-bottom:20px;
@@ -126,4 +126,12 @@ button:hover {
 
   .toggle-input:checked + .toggle-slider:before {
     transform: translateX(24px);
+  }
+
+  .fixed-img{
+    position:fixed;
+    bottom: 50px;
+    top:50px;
+    left:150px;
+    right:40px;
   }
