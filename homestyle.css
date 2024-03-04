@@ -1,0 +1,129 @@
+body.Home{
+    background: url('bg.gif') no-repeat;
+    background-size:75%;
+    background-position:50% 120%;
+    overflow-x: auto;
+    z-index: -1;
+    color:#6691f5;
+    background-color:#fff;
+}
+
+.tab{
+    background-color: #6691f5;
+    display:flex;
+    width:100%;
+    justify-content:space-between;
+}
+
+button{
+    background-color: #6691f5;
+    color:#ffffff;
+    font-weight:30px;
+    border:2px solid #6691f5;
+    margin-top: 0px;
+    font-size:15px;
+    width: 80px;
+    height: 50px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+button:hover {
+    background-color: white;
+    color: #000;
+}
+
+.spacer{
+    margin-bottom:800px;
+}
+
+.LoginTable{
+    margin-top:150px;
+    margin-left:80px;
+}
+.input-container,.input-contain-small {
+    position: relative;
+ }
+
+ .input-container label,.input-contain-small label {
+    position: absolute;
+    top: 40%;
+    transform: translateY(-50%);
+    left: 15px;
+    top:20px; 
+    color: hsl(0, 0%, 0%); 
+    pointer-events: none; 
+ }
+
+ .input-container input {
+    padding-left: 150px;
+    padding-right: 50px;
+    padding-top:30px;
+    padding-bottom:20px;
+ }
+ .log{
+    display:flex;
+    justify-content:space-between;
+ }
+ .FullName{
+    display:flex;
+    justify-content: space-evenly;
+    
+
+ }
+ .input-contain-small input {
+    padding-left: 80px;
+    padding-right: 10px;
+    padding-top:30px;
+    padding-bottom:20px;
+ }
+
+  #profile-image {
+    border-radius: 50%;
+    max-width: 150px;
+    max-height: 150px;
+  }
+
+  #profile-input {
+    display: none;
+  }
+  .toggle-container {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 26px;
+  }
+
+  .toggle-input {
+    display: none;
+  }
+
+  .toggle-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    border-radius: 34px;
+    transition: 0.4s;
+  }
+
+  .toggle-slider:before {
+    position: absolute;
+    content: "";
+    height: 22px;
+    width: 22px;
+    left: 2px;
+    bottom: 2px;
+    background-color: #6691f5;
+    border-radius: 50%;
+    transition: 0.4s;
+  }
+  .toggle-input:checked + .toggle-slider {
+    background-color: #ccc;
+  }
+
+  .toggle-input:checked + .toggle-slider:before {
+    transform: translateX(24px);
+  }
