@@ -131,7 +131,7 @@ button:hover {
   .fixed-img{
     position:fixed;
     bottom: 50px;
-    top:50px;
+    top:150px;
     left:150px;
     right:40px;
   }
