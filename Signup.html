@@ -4,29 +4,19 @@
         <title>Sign Up Page</title>
         <link rel="stylesheet" href="homestyle.css">
     </head>
-    <body>
+    <body style="background-color:#000;">
         <div class="tab">
-            <table style="margin-left:10px;">
+            <table style="margin-left:150px;margin-top:30px;">
                 <tr>
-                    <td><img style="width:60px;height:60px;" src="logo1.jpg"></td>
-                    <td><h1 style="color:#ffffff;margin-left:20px;">TaskEase</h1></td>
+                    <td><img style="width:60px;height:60px;" src="Logo1.png"></td>
+                    <td><a href="home.html" style="pointer:cursor;text-decoration:none;color:#ceff1a;font-size:25px;font-family:Arial;font-stretch:expanded;letter-spacing:1px;">TaskEase</a></td>
                 </tr>
             </table>
         </div>
         <div class="log">
         <div class="LoginTable">
-            <h1 style="font-family:Tahoma;">Sign Up</h1><br>
-            <div class="FullName">
-                <div class="input-contain-small">
-                    <label for="username" style="font-size:15px;font-family:Tahoma;">First Name:</label>
-                    <input style="font-size:15px;"type="text" id="firstname" name="firstname" placeholder="Enter your First Name" required>
-                </div>
-                <div class="input-contain-small">
-                    <label for="lastname" style="font-size:15px;font-family:Tahoma;">Last Name:</label>
-                    <input style="font-size:15px;"type="text" id="lastname" name="lastname" placeholder="Enter your Last Name" required>
-                </div>
-            </div>
-            <br>
+            <h1 style="font-family:Tahoma;color:#fff;">Sign Up</h1><br>
+            <br><br><br>
             <div class="input-container">
                 <label for="username" style="font-size:15px;font-family:Tahoma;">Username:</label>
                 <input style="font-size:15px;"type="text" id="username" name="username" placeholder="Enter your username" required>
@@ -36,52 +26,13 @@
                 <label for="Password" style="font-size:15px;font-family:Tahoma;">Password:</label>
                 <input style="font-size:15px;"type="password" id="password" name="password" placeholder="Enter your Password" required>
             </div>
-
-
-            <label for="profile-input">  
-                <br>
-                <p style="font-family:Tahoma;">Upload Your Profile Picture :</p>
-                <img style="margin-left:200px;margin-top:10px;"id="profile-image" src="default-user.jpg" alt="User Profile Photo">
-            </label>
-            <input type="file" id="profile-input" accept="image/*" onchange="displayProfileImage(this)" required>
-            <p style="margin-left:170px;">(Click the above picture to upload)</p>
-       
-            <script>
-                function displayProfileImage(input) {
-                  const profileImage = document.getElementById('profile-image');
-                  const file = input.files[0];
-              
-                  if (file) {
-                    const reader = new FileReader();
-              
-                    reader.onload = function (e) {
-                      profileImage.src = e.target.result;
-                    };
-              
-                    reader.readAsDataURL(file);
-                  }
-                }
-              </script>
-            <br><br>
-
-            <span style="font-family:Tahoma;">Turn On Notification : </span>
-            <label class="toggle-container" style="margin-left:270px;margin-top:40px;">
-                <input type="checkbox" class="toggle-input" onchange="toggleButtonClick()" required>
-                <span class="toggle-slider"></span>
-            </label>
-            <script>
-                function toggleButtonClick() {
-                  const toggleInput = document.querySelector('.toggle-input');
-                  alert(toggleInput.checked ? 'Notification is ON' : 'Notification is OFF');
-                }
-              </script>
-              <br><br><br>
-            <input type="submit" value="Sign Up"  style="font-size:15px;background-color:#6691f5;border:none;border-radius:5px;width:555px;color:#fff;font-weight:50px;font-family:Tahoma;height:45px;cursor:pointer;">
+            <br>
+            <a href="profile.html" ><input type="submit" value="Sign Up"  style="font-size:15px;background-color:#ceff1a;border:none;border-radius:5px;width:375px;color:#000;font-weight:50px;font-family:Tahoma;height:45px;cursor:pointer;"></a>
             <br><br>
             <hr color="lightgrey">
-            <p style="font-size:10px;font-weight:lighter;margin-left:230px;font-family:Tahoma;">Already Signed Up?<a href="Login.html">Login</a></p>
+            <p style="font-size:10px;font-weight:lighter;margin-left:130px;font-family:Tahoma;color:#fff;">Already Signed Up? <a style="color:#fff;" href="Login.html">Login</a></p>
         </div> 
-            <img src="Singup.jpg" style="width:500px;height:500px;margin-top:100px;margin-right:50px;position:sticky" class="fixed-img">
+            <img src="Signup.gif" style="width:500px;height:300px;margin-top:250px;margin-right:150px;position:sticky" class="fixed-img">
         </div>
         
     </body>
