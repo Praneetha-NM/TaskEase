@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Profile</title>
+        <title>Team</title>
         <link rel="stylesheet" href="homestyle.css">
     </head>
     <body style="max-height:50%;overflow-y:hidden;background-color:#000;">
@@ -15,63 +15,26 @@
                 </table>
             </div>
             <div class="slide2" style="width:55%;background-color:#1b1b1b;">
-                <p><button style="margin-left:450px;margin-top:35px;background-color:#302f2f;color:#fff;font-family:Tahoma;border:none;padding:8px;font-size:15px;border-radius:2px;">Step 1 of 2 </button></p>
+                <p><button style="margin-left:490px;margin-top:35px;background-color:#302f2f;color:#fff;font-family:Tahoma;border:none;padding:8px;font-size:15px;border-radius:2px;">Step 3 of 4 </button></p>
             </div>
         </div>
         <div class="main-content" style="margin-top:-10px;height:500px;">
             <div class="slide1_1" style="width:50%;height:680px;margin-bottom:500px;background-color:#000;">
                 <br><br><br><br>
-                <h1 style="margin-bottom:30px;margin-left:160px;color:#fff;font-family:Tahoma;font-size:23px;">Create your profile</h1>
+                <h1 style="margin-bottom:70px;margin-left:160px;color:#fff;font-family:Tahoma;font-size:23px;">Create a Team</h1>
+                <p style="margin-left:160px;color:lightgrey;font-family:Tahoma;">We'll set up a shared workspace for your team's <br>projects alongside your personal ones.</p>
                 <br><br>
-                <div class="FullName" style="margin-left:160px;width:300px;">
-                    <div class="input-contain-small" >
-                        <label for="username" style="font-size:10px;font-family:Tahoma;">First Name:</label>
-                        <input style="font-size:9px;"type="text" id="firstname" name="firstname" placeholder="Enter your First Name" required>
-                    </div>
-                    <div class="input-contain-small">
-                        <label for="lastname" style="font-size:10px;font-family:Tahoma;">Last Name:</label>
-                        <input style="font-size:9px;"type="text" id="lastname" name="lastname" placeholder="Enter your Last Name" required>
-                    </div>
+                <div class="input-container" style="margin-left:160px;">
+                    <label for="team_name" style="font-size:15px;font-family:Tahoma;">Team Name</label>
+                    <input style="font-size:15px;"type="text" id="teamname" name="teamname" placeholder="e.g. Awesome Inc." required>
                 </div>
-                <label for="profile-input" >  
-                    <p style="font-family:Tahoma;color:#fff;margin-left:160px;">Upload Your Profile Picture :</p>
-                    <img style="margin-left:390px;margin-top:10px;"id="profile-image" src="default-user.jpg" alt="User Profile Photo">
-                </label>
-                <input style="margin-left:50px;" type="file" id="profile-input" accept="image/*" onchange="displayProfileImage(this)" required>
-                <p style="margin-left:330px;color:#fff;">(Click the above picture to upload)</p>
-                
-                <script>
-                    function displayProfileImage(input) {
-                      const profileImage = document.getElementById('profile-image');
-                      const file = input.files[0];
-                  
-                      if (file) {
-                        const reader = new FileReader();
-                  
-                        reader.onload = function (e) {
-                          profileImage.src = e.target.result;
-                        };
-                  
-                        reader.readAsDataURL(file);
-                      }
-                    }
-                  </script>
-                <span style="font-family:Tahoma;color:#fff;margin-left:160px;">Turn On Notification : </span>
-                    <label class="toggle-container" style="margin-left:200px;margin-top:40px;">
-                    <input type="checkbox" class="toggle-input" onchange="toggleButtonClick()" required>
-                <span class="toggle-slider"></span>
-                </label>
-                <script>
-                    function toggleButtonClick() {
-                        const toggleInput = document.querySelector('.toggle-input');
-                        alert(toggleInput.checked ? 'Notification is ON' : 'Notification is OFF');
-                    }
-                </script>
-                <br><br><br>
-                <a href="front_page.html" ><input type="submit" value="Continue"  style="margin-left:160px;font-size:15px;background-color:#ceff1a;border:none;border-radius:5px;width:415px;color:#000;font-weight:50px;font-family:Tahoma;height:45px;cursor:pointer;"></a>
+                <p style="margin-left:160px;color:lightgrey;font-size:13px;font-family:Tahoma;">Keep it something simple your teammates will recognize.</p>
+                <br><br>
+                <a href="profile3.html" ><input type="submit" value="Continue"  style="margin-left:160px;font-size:15px;background-color:#ceff1a;border:none;border-radius:5px;width:370px;color:#000;font-weight:50px;font-family:Tahoma;height:45px;cursor:pointer;"></a>
+                <a href="profile3.html" ><input type="submit" value="Skip for Now"  style="margin-left:160px;margin-top:30px;font-size:15px;background-color:lightgrey;border:none;border-radius:5px;width:370px;color:#000;font-weight:50px;font-family:Tahoma;height:45px;cursor:pointer;"></a>
             </div>
             <div  class="slide2_1" style="width:50%;height:680px;background-color:#1b1b1b;">
-                <img src="Profile.gif" style="width:400px;height:500px;margin-left:130px;margin-top:100px;">
+                <img src="Team.gif" style="width:450px;height:500px;margin-left:130px;margin-top:90px;">
             </div>
         </div>
     </body>

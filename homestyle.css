@@ -15,6 +15,43 @@ body.Home{
     margin-top:-10px;
     justify-content:space-between;
 }
+.bar button{
+  background-color: #1b1b1b;
+  margin-left:10px;
+  border-radius:5px;
+  border: 1px solid;
+  width:250px;
+  height:30px;
+  border-color:#1b1b1b;
+  color:#fff;
+  transition: background-color 0.3s, color 0.3s;
+  cursor: pointer;
+  font-weight:lighter;
+}
+.bar button:hover {
+  background-color: #000;
+  border-color:#ceff1a;
+  color: #ceff1a;
+  font-weight:bold;
+}
+.Projects button {
+  background-color: #1b1b1b;
+  margin-left:10px;
+  border-radius:5px;
+  border: 1px solid;
+  height:40px;
+  border-color:#1b1b1b;
+  color:#fff;
+  transition: background-color 0.3s, color 0.3s;
+  cursor: pointer;
+  font-weight:lighter;
+}
+.Projects button:hover {
+  background-color: #000;
+  border-color:#ceff1a;
+  color: #ceff1a;
+  font-weight:bold;
+}
 
 .green button{
     background-color: #ceff1a;
@@ -59,20 +96,30 @@ body.Home{
     margin-top:180px;
     margin-left:160px;
 }
-.input-container,.input-contain-small {
+.input-container,.input-contain-small{
     position: relative;
     
  }
-
- .input-container label,.input-contain-small label {
+ .input-container-radio{
+  position: relative;
+  width:300px;
+ }
+ .input-container label{
     position: absolute;
     top: 40%;
     transform: translateY(-50%);
     left: 15px;
     top:20px; 
-    color: #fff;; 
+    color: #fff; 
     pointer-events: none; 
  }
+ .input-container-radio label{
+  position: absolute;
+  left: 55px; 
+  top:10px;
+  color: #fff;
+  pointer-events: none; 
+}
  .input-contain-small label {
     position: absolute;
     top: 40%;
@@ -82,7 +129,7 @@ body.Home{
     color: #fff;; 
     pointer-events: none; 
  }
- .input-container input {
+ .input-container input{
     padding-left: 130px;
     padding-right: 50px;
     padding-top:30px;
@@ -95,6 +142,19 @@ body.Home{
     border-radius: 10px;
     color:#fff;
  }
+ .input-container-radio input{
+  padding-left: 130px;
+  padding-right: 50px;
+  padding-top:30px;
+  padding-bottom:20px;
+  border-style: solid;
+  background-color:#000;
+  border-top-color:#444242;
+  border-left-color:#444242 ;
+  border-color:#444242;
+  border-radius: 10px;
+  color:#fff;
+}
  .log{
     display:flex;
     justify-content:space-between;
