@@ -4,9 +4,9 @@
         <title>Front Page</title>
         <link rel="stylesheet" href="homestyle.css">
     </head>
-    <body style="background-color:#1b1b1b;">
-        <div class="front_page">
-            <div class="sidebar" style="background-color:#1b1b1b;width:30%;height:100%;">
+    <body style="background-color:#1b1b1b;overflow-x:hidden;overflow-y:hidden;">
+        <div class="front_page" style="display:flex;justify-content:space-between;">
+            <div class="sidebar" style="background-color:#1b1b1b;width:300px;height:100%;">
                 <p style="color:#fff;">Username</p>
                 <br><br><br>
                 <div class="bar">
@@ -60,12 +60,35 @@
                 </div>
                 <br><br>
                 <div class="Projects" style="display:flex;">
-                    <button style="font-size:17px;width:200px;text-align:left;margin-top:0px;">My Projects</button>
+                    <button style="font-size:17px;width:150px;text-align:left;margin-top:0px;font-weight:lighter;">My Projects</button>
                         <button style="width:25px;height:25px;margin-top:5px;">+</button>
-                        <button style="width:25px;height:25px;margin-top:5px;">&gt</button>
+                        <button class="trans" style="width:25px;height:25px;margin-top:5px;">&gt</button>
                 </div>
-            <div class="main" style="background-color:#000;width:70%;height:100%;">
-
+                <div class="bar" style="margin-top:330px;">
+                    <a href="Add_team.html" style="text-decoration:none;">
+                        <button style="display:flex;">
+                            <img src="Add_task.png" style="width:20px;height:20px;border-radius:50%;margin-right:10px;">
+                            <p style="margin-top:0px;font-size:15px;"> Add a Team </p>
+                        </button>
+                    </a>
+                    <br>
+                </div>
+            </div>
+            <div class="main" style="background-color:#000;width:80%;height:100%;">
+                    <h2 style="font-family:Tahoma;margin-top:90px;margin-left:90px;color:#ceff1a;">Today</h2>
+                    <div class="bar" style="margin-left:75px;margin-top:30px;">
+                        <a href="Add_task.html" style="text-decoration:none;">
+                            <button style="display:flex;background-color:#000;border:none;">
+                                <img src="Add_task.png" style="width:20px;height:20px;border-radius:50%;margin-right:10px;">
+                                <p style="margin-top:0px;font-size:15px;"> Add task </p>
+                            </button>
+                        </a>
+                        <br>
+                    </div>
+                    <img style="margin-top:30px;margin-left:400px;width:300px;height:300px;" src="Fp.png">
+                    <p style="margin-left:380px;font-weight:bold;color:#fff;font-family:Tahoma;">What do you need to get done today?</p>
+                    <p style="margin-right:0px;color:lightgrey;text-align:center;font-family:Tahoma;font-size:15px;">By default, tasks added here will be due <br>today. Click + to add a task.</p>
+                    <br><br><br><br><br><br><br>
             </div>
         </div>
     </body>
