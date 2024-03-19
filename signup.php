@@ -1,16 +1,6 @@
 <?php
 // Establish database connection
-$servername = "localhost";
-$username = "root";
-$password = "Praneetha";
-$database = "TaskEase";
-
-$conn = new mysqli($servername, $username, $password, $database);
-
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+include ("connection.php");
 
 // Function to sanitize user inputs
 function sanitize_input($data) {
