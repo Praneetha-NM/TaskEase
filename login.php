@@ -1,4 +1,9 @@
 <?php
+<<<<<<< Updated upstream
+=======
+session_start();
+
+>>>>>>> Stashed changes
 // Establish database connection
 $servername = "localhost";
 $username = "root";
@@ -36,6 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         if (password_verify($password, $hashed_password)) {
             // Password matches, redirect to front page with welcome message
+<<<<<<< Updated upstream
             header("Location: front_page.html");
             exit;
         } else {
@@ -47,12 +53,53 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo '<script>alert("Wrong Username or Password");</script>';
     }
 
+=======
+            $_SESSION['username'] = $username;
+        } else {
+            // Password doesn't match, set error message
+            $_SESSION['error'] = "Wrong Username or Password";
+        }
+    } else {
+        // Username not found, set error message
+        $_SESSION['error'] = "Wrong Username or Password";
+    }
+>>>>>>> Stashed changes
     // Close statement and result
     $stmt->close();
 }
 
 // Close connection
 $conn->close();
+<<<<<<< Updated upstream
 header("Location: login.html");
 exit;
 ?>
+=======
+
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+</head>
+<body>
+    <?php
+    if (isset($_SESSION['error'])) {
+        echo '<script>
+                alert("' . $_SESSION['error'] . '");
+                window.location.href = "login.html";
+              </script>';
+        unset($_SESSION['error']);
+    }
+    if (isset($_SESSION['username'])) {
+        echo '<script>
+                alert("Welcome ' . $_SESSION['username'] . '");
+                window.location.href = "front_page.html";
+              </script>';
+        unset($_SESSION['username']);
+    }
+    ?>
+</body>
+</html>
+>>>>>>> Stashed changes

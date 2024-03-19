@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Custom Alert</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+
+<!-- Button to trigger the modal -->
+<button type="button" class="btn btn-primary" onclick="showCustomAlert()">
+  Button
+</button>
+
+<!-- Custom Alert Modal -->
+<div class="modal fade" id="customAlertModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body" id="customAlertBody">  
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  function showCustomAlert() {
+    var username = "John"; // Replace this with the actual username
+    var emoji = String.fromCodePoint(0x1F44B); // Wave emoji
+    var message = emoji + " Hello, welcome " + username + "!";
+    document.getElementById("customAlertBody").innerHTML = message;
+    $('#customAlertModal').modal('show');
+  }
+</script>
+
+</body>
+</html>

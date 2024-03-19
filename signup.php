@@ -1,6 +1,20 @@
 <?php
 // Establish database connection
+<<<<<<< Updated upstream
 include ("connection.php");
+=======
+$servername = "localhost";
+$username = "root";
+$password = "Praneetha";
+$database = "TaskEase";
+
+$conn = new mysqli($servername, $username, $password, $database);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+>>>>>>> Stashed changes
 
 // Function to sanitize user inputs
 function sanitize_input($data) {
