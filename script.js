@@ -47,11 +47,7 @@ function validateForm() {
     var passwordMsg = document.getElementById("password-validation-msg");
 
     if (password.length < 8 || password.length > 15) {
-<<<<<<< Updated upstream
         passwordMsg.textContent = "Password must be between 8 to 15 characters";
-=======
-        passwordMsg.textContent = "Password must be between 8 and 15 characters";
->>>>>>> Stashed changes
         return false;
     }
 
