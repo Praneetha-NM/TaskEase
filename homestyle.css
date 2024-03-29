@@ -128,7 +128,7 @@ body.Home{
     color: #fff;; 
     pointer-events: none; 
  }
- .input-container input{
+.input-container input{
     padding-left: 130px;
     padding-right: 50px;
     padding-top:30px;
@@ -141,6 +141,19 @@ body.Home{
     border-radius: 10px;
     color:#fff;
  }
+ .input-container select{
+  padding-left: 130px;
+  padding-right: 50px;
+  padding-top:30px;
+  padding-bottom:20px;
+  border-style: solid;
+  background-color:#000;
+  border-top-color:#444242;
+  border-left-color:#444242 ;
+  border-color:#444242;
+  border-radius: 10px;
+  color:#fff;
+}
  .input-container-radio input{
   padding-left: 130px;
   padding-right: 50px;

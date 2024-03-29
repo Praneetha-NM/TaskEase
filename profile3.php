@@ -49,7 +49,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->close();
 
         // Redirect to the desired page
-        header("Location: front_page.html"); // Redirect to a success page or any other page
+        header("Location: front_pagee.php"); // Redirect to a success page or any other page
         exit(); // Ensure that script execution stops after redirection
     } else {
         echo "Error: User not found";

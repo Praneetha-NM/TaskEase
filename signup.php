@@ -1,6 +1,8 @@
 <?php
 
 session_start();
+
+session_start();
 // Establish database connection
 $servername = "localhost";
 $username = "root";
@@ -43,9 +45,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // Prepare SQL statement to insert user data into the database
         
+        
         $insert_stmt = $conn->prepare("INSERT INTO users (username, password) VALUES (?, ?)");
 
+
         $insert_stmt->bind_param("ss", $username, $hashed_password);
+
 
 
         // Execute the prepared statement
@@ -54,6 +59,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             header("Location: profile.html");
             exit; // Ensure that script execution stops after redirection
         } else {
+
 
             // Signup failed
             $message = "Error: " . $insert_stmt->error;
@@ -83,7 +89,7 @@ $conn->close();
 
     // Redirect to the login page if the username already exists
     <?php if ($message == "Username already exists. Please choose a different username.") : ?>
-    window.location.href = "Login.html";
+    window.location.href = "Signup.html";
     <?php endif; ?>
     </script>
 </body>
