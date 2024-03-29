@@ -1,8 +1,7 @@
 <?php
+
+session_start();
 // Establish database connection
-<<<<<<< Updated upstream
-include ("connection.php");
-=======
 $servername = "localhost";
 $username = "root";
 $password = "Praneetha";
@@ -14,7 +13,6 @@ $conn = new mysqli($servername, $username, $password, $database);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
->>>>>>> Stashed changes
 
 // Function to sanitize user inputs
 function sanitize_input($data) {
@@ -29,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Retrieve and sanitize user inputs
     $username = sanitize_input($_POST["username"]);
     $password = sanitize_input($_POST["password"]);
-
+    $_SESSION['username'] = $username;
     // Check if the username already exists in the database
     $check_stmt = $conn->prepare("SELECT username FROM users WHERE username = ?");
     $check_stmt->bind_param("s", $username);
@@ -44,8 +42,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
         // Prepare SQL statement to insert user data into the database
+        
         $insert_stmt = $conn->prepare("INSERT INTO users (username, password) VALUES (?, ?)");
+
         $insert_stmt->bind_param("ss", $username, $hashed_password);
+
 
         // Execute the prepared statement
         if ($insert_stmt->execute()) {
@@ -53,6 +54,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             header("Location: profile.html");
             exit; // Ensure that script execution stops after redirection
         } else {
+
             // Signup failed
             $message = "Error: " . $insert_stmt->error;
         }
@@ -81,7 +83,7 @@ $conn->close();
 
     // Redirect to the login page if the username already exists
     <?php if ($message == "Username already exists. Please choose a different username.") : ?>
-    window.location.href = "signup.html";
+    window.location.href = "Login.html";
     <?php endif; ?>
     </script>
 </body>

@@ -5,6 +5,7 @@
         <link rel="stylesheet" href="homestyle.css">
     </head>
     <body style="max-height:50%;overflow-y:hidden;background-color:#000;">
+        <form action="profile1.php" method="POST" onsubmit= "return validateForm()">
         <div class="tab" style="height:100px;">
             <div class="slide1" style="width:55%;background-color:#000;">
                 <table style="margin-left:150px;margin-top:30px;">
@@ -25,26 +26,20 @@
                 <br><br>
                 <div class="input-container" style="margin-left:150px;margin-right:50px;">
                     <label for="username" style="font-family:Tahoma;">Your Role : </label>
-                    <select style="margin-left:170px;margin-top:10px;font-size:15px;width:250px;background-color:#000;border-color:#444242;color:#fff;" id="username" name="username" placeholder="Select an option" required>
-                    
-                        <option>Select an Option</option>
-                        <option>Student</option>
-                        <option>Employee</option>
-                        <option>Other</option>
+                    <select style="margin-left:170px;margin-top:10px;font-size:15px;width:250px;background-color:#000;border-color:#444242;color:#fff;" id="role" name="role" placeholder="Select an option">
+                        <option value="">Select an Option</option>
+                        <option value="Student">Student</option>
+                        <option value="Employee">Employee</option>
+                        <option value="Other">Other</option>
                     </select>
+                    <br><br><span id="roleerror" style="color:red;font-size:15px;margin-left:230px;"></span>
                 </div>
                 
                 <span style="font-family:Tahoma;color:#fff;margin-left:160px;">Turn On Notification : </span>
                     <label class="toggle-container" style="margin-left:200px;margin-top:40px;">
-                    <input type="checkbox" class="toggle-input" onchange="toggleButtonClick()" required>
+                    <input type="checkbox" class="toggle-input" onchange="toggleButtonClick()" name="not" id="not">
                 <span class="toggle-slider"></span>
                 </label>
-                <script>
-                    function toggleButtonClick() {
-                        const toggleInput = document.querySelector('.toggle-input');
-                        alert(toggleInput.checked ? 'Notification is ON' : 'Notification is OFF');
-                    }
-                </script>
                 <br><br><br>
                 <a href="profile2.html" ><input type="submit" value="Continue"  style="margin-left:160px;font-size:15px;background-color:#ceff1a;border:none;border-radius:5px;width:415px;color:#000;font-weight:50px;font-family:Tahoma;height:45px;cursor:pointer;"></a>
             </div>
@@ -52,5 +47,23 @@
                 <img src="Customize.gif" style="width:450px;height:300px;margin-left:130px;margin-top:160px;">
             </div>
         </div>
+        </form>
+        <script>
+            function validateForm(){
+                var rolee=document.getElementById("role").value;
+                var msg=document.getElementById("roleerror");
+                msg.textContent="";
+                if(rolee==""){
+                    msg.textContent="Select any one option !!";
+                    return false;
+                }
+                return true;
+
+            }
+            function toggleButtonClick() {
+                const toggleInput = document.querySelector('.toggle-input');
+                alert(toggleInput.checked ? 'Notification is ON' : 'Notification is OFF');
+            }
+        </script>     
     </body>
 </html>

@@ -1,11 +1,18 @@
 CREATE DATABASE IF NOT EXISTS TaskEase;
-
--- Use TaskEase database
 USE TaskEase;
-
--- Create users table
 CREATE TABLE users (
     id INT AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(255) NOT NULL UNIQUE,
     password VARCHAR(255) NOT NULL
+);
+CREATE TABLE details (
+    user_id INT AUTO_INCREMENT,
+    first_name VARCHAR(255) NOT NULL,
+    last_name VARCHAR(255) NOT NULL,
+    profile_picture BLOB,
+    role ENUM('Student', 'Employee', 'Other') NOT NULL,
+    want_notification BOOLEAN NOT NULL,
+    team_name VARCHAR(255),
+    plan ENUM('Personal', 'Education', 'Work') NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES users(id)
 );

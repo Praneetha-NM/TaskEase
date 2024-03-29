@@ -1,10 +1,6 @@
 <?php
-<<<<<<< Updated upstream
-=======
 session_start();
 
->>>>>>> Stashed changes
-// Establish database connection
 $servername = "localhost";
 $username = "root";
 $password = "Praneetha";
@@ -40,21 +36,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $hashed_password = $row["password"];
 
         if (password_verify($password, $hashed_password)) {
-            // Password matches, redirect to front page with welcome message
-<<<<<<< Updated upstream
+            // Password matches, set username in session and redirect to front page
+            $_SESSION['username'] = $username;
             header("Location: front_page.html");
             exit;
-        } else {
-            // Password doesn't match, display error message
-            echo '<script>alert("Wrong Username or Password");</script>';
-        }
-    } else {
-        // Username not found, display error message
-        echo '<script>alert("Wrong Username or Password");</script>';
-    }
-
-=======
-            $_SESSION['username'] = $username;
         } else {
             // Password doesn't match, set error message
             $_SESSION['error'] = "Wrong Username or Password";
@@ -63,19 +48,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Username not found, set error message
         $_SESSION['error'] = "Wrong Username or Password";
     }
->>>>>>> Stashed changes
+
     // Close statement and result
     $stmt->close();
 }
 
 // Close connection
 $conn->close();
-<<<<<<< Updated upstream
-header("Location: login.html");
-exit;
-?>
-=======
-
 ?>
 
 <!DOCTYPE html>
@@ -84,22 +63,15 @@ exit;
     <title>Login</title>
 </head>
 <body>
+    <script>
     <?php
     if (isset($_SESSION['error'])) {
-        echo '<script>
-                alert("' . $_SESSION['error'] . '");
-                window.location.href = "login.html";
-              </script>';
+        // Display error message as an alert box
+        echo 'alert("' . $_SESSION['error'] . '");';
         unset($_SESSION['error']);
     }
-    if (isset($_SESSION['username'])) {
-        echo '<script>
-                alert("Welcome ' . $_SESSION['username'] . '");
-                window.location.href = "front_page.html";
-              </script>';
-        unset($_SESSION['username']);
-    }
     ?>
+    window.location.href = "Login.html";
+    </script>
 </body>
 </html>
->>>>>>> Stashed changes

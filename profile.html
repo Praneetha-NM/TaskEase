@@ -5,6 +5,7 @@
         <link rel="stylesheet" href="homestyle.css">
     </head>
     <body style="max-height:50%;overflow-y:hidden;background-color:#000;">
+        <form action="profile.php" method="POST" onsubmit="return validateForm()">
         <div class="tab" style="height:100px;">
             <div class="slide1" style="width:55%;background-color:#000;">
                 <table style="margin-left:150px;margin-top:30px;">
@@ -25,38 +26,21 @@
                 <br><br>
                 <div class="FullName" style="margin-left:160px;width:300px;">
                     <div class="input-contain-small" >
-                        <label for="username" style="font-size:10px;font-family:Tahoma;">First Name:</label>
-                        <input style="font-size:9px;"type="text" id="firstname" name="firstname" placeholder="Enter your First Name" required>
+                        <label for="fname" style="font-size:10px;font-family:Tahoma;">First Name:</label>
+                        <input style="font-size:9px;" type="text" id="fname" name="fname" placeholder="Enter your First Name">
                     </div>
                     <div class="input-contain-small">
-                        <label for="lastname" style="font-size:10px;font-family:Tahoma;">Last Name:</label>
-                        <input style="font-size:9px;"type="text" id="lastname" name="lastname" placeholder="Enter your Last Name" required>
+                        <label for="lname" style="font-size:10px;font-family:Tahoma;">Last Name:</label>
+                        <input style="font-size:9px;" type="text" id="lname" name="lname" placeholder="Enter your Last Name">
                     </div>
                 </div>
+                <p id="nameerror" style="color:red;font-size:15px;margin-left:230px;"></p>
                 <label for="profile-input" >  
                     <p style="font-family:Tahoma;color:#fff;margin-left:160px;">Upload Your Profile Picture :</p>
-                    <img style="margin-left:390px;margin-top:10px;"id="profile-image" src="default-user.jpg" alt="User Profile Photo">
+                    <img style="margin-left:390px;margin-top:10px;"id="profile-image" name="profile-image" src="default-user.jpg" alt="User Profile Photo">
                 </label>
-                <input style="margin-left:50px;" type="file" id="profile-input" accept="image/*" onchange="displayProfileImage(this)" required>
+                <input style="margin-left:50px;" type="file" id="profile-input" accept="image/*" onchange="displayProfileImage(this)">
                 <p style="margin-left:330px;color:#fff;">(Click the above picture to upload)</p>
-                
-                <script>
-                    function displayProfileImage(input) {
-                      const profileImage = document.getElementById('profile-image');
-                      const file = input.files[0];
-                  
-                      if (file) {
-                        const reader = new FileReader();
-                  
-                        reader.onload = function (e) {
-                          profileImage.src = e.target.result;
-                        };
-                  
-                        reader.readAsDataURL(file);
-                      }
-                    }
-                  </script>
-                
                 <br><br><br>
                 <a href="profile1.html" ><input type="submit" value="Continue"  style="margin-left:160px;font-size:15px;background-color:#ceff1a;border:none;border-radius:5px;width:415px;color:#000;font-weight:50px;font-family:Tahoma;height:45px;cursor:pointer;"></a>
             </div>
@@ -64,5 +48,42 @@
                 <img src="Profile.gif" style="width:400px;height:500px;margin-left:130px;margin-top:100px;">
             </div>
         </div>
+        </form>
+        <script>
+            function validateForm(){
+                console.log("Form validation function called.");
+                var firstname = document.getElementById("fname").value;
+                var lastname = document.getElementById("lname").value;
+                var msg = document.getElementById("nameerror");
+                var nameregex = /^[a-zA-Z]{3,12}$/;
+                msg.textContent = "";
+                if (!nameregex.test(firstname)) {
+                    msg.textContent = "Firstname should contain 3 to 12 alphabets only";
+                    return false;
+                }
+                if (!nameregex.test(lastname)) {
+                    msg.textContent = "Lastname should contain 3 to 12 alphabets only";
+                    return false;
+                }
+                return true;
+            }
+                
+            function displayProfileImage(input) {
+                const profileImage = document.getElementById('profile-image');
+                const file = input.files[0];
+                  
+                if (file) {
+                    const reader = new FileReader();
+                  
+                    reader.onload = function (e) {
+                    profileImage.src = e.target.result;
+                };
+                  
+                reader.readAsDataURL(file);
+                }
+            }
+        </script>
+                
+                
     </body>
 </html>

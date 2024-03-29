@@ -3,10 +3,9 @@
     <head>
         <title>Login Page</title>
         <link rel="stylesheet" href="homestyle.css">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     </head>
     <body style="background-color:#000">
-        <form action="login.php" method="post">
+        <form action="login.php" method="POST">
         <div class="tab">
             <table style="margin-left:150px;margin-top:30px;">
                 <tr>
@@ -25,9 +24,8 @@
             </div>
             <br>
             <div class="input-container">
-                <label for="Password" style="font-size:15px;font-family:Tahoma;">Password:</label>
-                <input style="font-size:15px;"type="password" id="password" name="password" placeholder="Enter your Password">
-                
+                <label for="password" style="font-size:15px;font-family:Tahoma;">Password:</label>
+                <input style="font-size:15px;border: 1px solid #ccc"type="text" id="password" name="password" placeholder="Enter your password">
             </div>
             <br>
             <a href="front_page.html" ><input type="submit" value="Log In"  style="font-size:15px;background-color:#ceff1a;border:none;border-radius:5px;width:375px;color:#000;font-weight:50px;font-family:Tahoma;height:45px;cursor:pointer;"></a>
