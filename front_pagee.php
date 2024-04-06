@@ -3,7 +3,7 @@
 session_start();
 $servername = "localhost";
 $username = "root";
-$password = "Praneetha";
+$password = "";
 $database = "TaskEase";
 
 // Create connection
@@ -92,7 +92,7 @@ $conn->close();
                         <button class="trans" style="width:25px;height:25px;margin-top:5px;font-size:15px;">&gt</button>
                 </div>
                 <div class="bar" style="margin-top:330px;">
-                    <a href="Add_team.html" style="text-decoration:none;">
+                    <a href="team.php" style="text-decoration:none;">
                         <button style="display:flex;">
                             <img src="Add_task.png" style="width:20px;height:20px;border-radius:50%;margin-right:10px;">
                             <p style="margin-top:0px;font-size:15px;"> Add a Team </p>

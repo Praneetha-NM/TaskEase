@@ -17,7 +17,7 @@ if ($conn->connect_error) {
 }
 
 // Retrieve form data
-$taskName = $_POST['taskname'];
+$teamName = $_POST['teamname'];
 $descriptionn = $_POST['des'];
 $priority = $_POST['priority'];
 $category = $_POST['category'];
@@ -25,14 +25,14 @@ $dueDate= $_POST['date'];
 $username=$_SESSION['username'];
 
 // Prepare SQL statement
-$sql = "INSERT INTO task (username, task_name, description, due_date, priority, category) VALUES (?, ?, ?, ?, ?, ?)";
+$sql = "INSERT INTO team (username, team_name, description, due_date, priority, category) VALUES (?, ?, ?, ?, ?, ?)";
 
 // Prepare and bind parameters
 $stmt = $conn->prepare($sql);
-$stmt->bind_param("ssssis", $username, $taskName, $descriptionn, $dueDate, $priority, $category);
+$stmt->bind_param("ssssis", $username, $teamName, $descriptionn, $dueDate, $priority, $category);
 if ($stmt->execute()) {
     // Redirect back to front_page.html after adding the task
-    header("Location: Upcoming.php");
+    header("Location: team.php");
     exit;
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;

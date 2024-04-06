@@ -29,7 +29,7 @@ $conn->close();
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Inbox Page</title>
+        <title>Add Team page</title>
         <link rel="stylesheet" href="homestyle.css">
     </head>
     <body style="background-color:#1b1b1b;overflow-x:auto;overflow-y:hidden;">
@@ -102,7 +102,7 @@ $conn->close();
                 </div>
                 </div>
             <div class="main" style="background-color:#000;width:80%;height:750px;flex-grow: 1">
-                <h2 style="font-family:Tahoma;margin-top:90px;margin-left:90px;color:#ceff1a;">Inbox</h2>
+                <h2 style="font-family:Tahoma;margin-top:90px;margin-left:90px;color:#ceff1a;">Teams</h2>
                 
                 <?php
                 if ($result && $result->num_rows > 0) {
@@ -114,7 +114,7 @@ $conn->close();
                     // Output data of each row
                     while ($row = $result->fetch_assoc()) {
                         echo '<tr>';
-                        echo '<td style="width:700px;"><input type="checkbox" style="background-color:#1b1b1b;"> <span style="font-family:Arial;font-size:15px;font-weight:lighter;margin-left:30px;">' . $row["task_name"] . '</span>';
+                        echo '<td style="width:700px;"><input type="checkbox" style="background-color:#1b1b1b;"> <span style="font-family:Arial;font-size:15px;font-weight:lighter;margin-left:30px;">' . $row["team_name"] . '</span>';
                         echo '<p style="font-family:Arial;font-size:12px;font-weight:lighter;">' . $row["description"] . '</p>';
                         echo '<p style="font-family:Arial;font-size:12px;font-weight:lighter;color:lightgreen;">' . $row["due_date"] . '</p>';
                         echo '<p style="margin-left:700px;font-family:Arial;font-size:12px;font-weight:lighter;color:lightgrey;">' . $row["category"] . '</p></td>';
@@ -127,28 +127,32 @@ $conn->close();
                     echo '<div id="add_taskk" class="bar" style="margin-left:90px;margin-top:60px;">';
                     echo '<button onclick="toggleTaskForm()" style="display:flex;background-color:#000;border:none;">';
                     echo '<img src="Add_task.png" style="width:20px;height:20px;border-radius:50%;margin-right:10px;">';
-                    echo '<p style="margin-top:0px;font-size:15px;color:#fff;"> Add task </p>';
+                    echo '<p style="margin-top:0px;font-size:15px;color:#fff;"> Add Team </p>';
                     echo '</button>';
                     echo '</div>';
                 } else {
                     echo '<div id="add_task" class="bar" style="margin-left:90px;margin-top:60px;">';
                     echo '<button onclick="toggleTaskForm()" style="display:flex;background-color:#000;border:none;">';
                     echo '<img src="Add_task.png" style="width:20px;height:20px;border-radius:50%;margin-right:10px;">';
-                    echo '<p style="margin-top:0px;font-size:15px;color:#fff;"> Add task </p>';
+                    echo '<p style="margin-top:0px;font-size:15px;color:#fff;"> Add Team </p>';
                     echo '</button>';
                     echo '</div>';
-                    echo '<img id="fp-image" style="margin-top:30px;margin-left:400px;width:300px;height:300px;" src="inboxmain.png">';
-                    echo '<p id="task-info" style="margin-left:380px;font-weight:bold;color:#fff;font-family:Tahoma;">Your peace of mind is priceless</p>';
-                    echo '<p id="task-instructions" style="margin-right:0px;color:lightgrey;text-align:center;font-family:Tahoma;font-size:15px;">Well Done ! No Tasks Pending </p>';
+                    echo '<img id="fp-image" style="margin-top:30px;margin-left:400px;width:300px;height:300px;" src="team.png">';
+                    echo '<p id="task-info" style="margin-left:340px;font-weight:bold;color:#fff;font-family:Tahoma;">"Unveiling New Horizons: Your Team, Our Journey"</p>';
+                    echo '<p id="task-instructions" style="margin-right:0px;color:lightgrey;text-align:center;font-family:Tahoma;font-size:15px;">A home for your teams work</p>';
                 }
             
                 ?>
                 <div id="task-form" style="display:none;margin-left:100px;margin-top:100px;">
-                        <form action="inboxx.php" method="POST" onsubmit="return validate()">   
+                        <form action="teamm.php" method="POST" onsubmit="return validate()">   
                             <table style="border:2px solid #333333;border-radius:10px;color:#fff;width:700px;background-color:#1b1b1b;">
                                 <tr>
+                                    <th style="font-family:Tahoma;margin-top:90px;margin-left:90px;">ADD A TEAM</th>
+                                </tr>
+                                <tr>
                                     <td>
-                                        <input name="taskname" style="width:700px;font-size:15px;padding-left: 10px;padding-top:10px;padding-bottom:10px;border:none;background-color:#1b1b1b;border-radius: 10px;color:#fff;"type="text" id="taskname" name="taskname" placeholder="Task name">
+                                        <label for="teamname"><h4 style="font-family:Tahoma;margin-top:10px;margin-left:10px;color:#ceff1a;">Team Name</h4></label>
+                                        <input name="teamname" style="width:700px;font-size:15px;padding-left: 10px;padding-top:10px;padding-bottom:10px;border:none;background-color:#1b1b1b;border-radius: 10px;color:#fff;"type="text" id="teamname" name="teamname" placeholder="The Name of your team or company ">
                                     </td>
                                 </tr>
                                 <tr>
@@ -181,7 +185,7 @@ $conn->close();
                                         </select>
                                         <span style="margin-left:345px;"></span>
                                         <button type="button" style="border-radius:5px;background-color:#888888;border:none;height:30px;color:#fff;" onclick="cancelTask()">Cancel</button>
-                                        <input type="submit" value="Add Task" style="margin-left:10px;border-radius:5px;background-color:#ceff1a;width:70px;border:none;height:30px;"onclick="addTask()">
+                                        <input type="submit" value="Add Team" style="margin-left:10px;border-radius:5px;background-color:#ceff1a;width:70px;border:none;height:30px;"onclick="addTask()">
                                     </td>
                                 </tr>
                         </table>

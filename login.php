@@ -3,7 +3,7 @@ session_start();
 
 $servername = "localhost";
 $username = "root";
-$password = "Praneetha";
+$password = "";
 $database = "TaskEase";
 
 $conn = new mysqli($servername, $username, $password, $database);
@@ -69,7 +69,6 @@ $conn->close();
 </head>
 <body>
     <script>
-    <script>
     <?php
     if (isset($_SESSION['error'])) {
         // Display error message as an alert box
@@ -78,9 +77,6 @@ $conn->close();
         echo 'alert("' . $_SESSION['error'] . '");';
         unset($_SESSION['error']);
     }
-    ?>
-    window.location.href = "Login.html";
-    </script>
     ?>
     window.location.href = "Login.html";
     </script>
