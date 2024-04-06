@@ -5,7 +5,7 @@ ini_set('display_errors', 1);
 // Database connection
 $servername = "localhost";
 $username = "root";
-$password = "Praneetha";
+$password = "";
 $database = "TaskEase";
 
 // Create connection

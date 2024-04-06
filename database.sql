@@ -37,12 +37,8 @@ CREATE TABLE completed_task (
     FOREIGN KEY (username) REFERENCES users(username)
 );
 CREATE TABLE team (
-    id INT AUTO_INCREMENT,
-    username VARCHAR(100) NOT NULL,
+    id INT AUTO_INCREMENT PRIMARY KEY,
     team_name VARCHAR(255) NOT NULL,
     description TEXT,
-    due_date DATE,
-    priority INT,
-    category ENUM('Inbox', 'Project') NOT NULL,
-    FOREIGN KEY (username) REFERENCES users(username)
+    pwd VARCHAR(255) NOT NULL
 );

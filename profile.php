@@ -4,7 +4,7 @@ session_start();
 // Establish database connection
 $servername = "localhost";
 $username = "root";
-$password = "Praneetha";
+$password = "";
 $dbname = "TaskEase";
 
 $conn = new mysqli($servername, $username, $password, $dbname);

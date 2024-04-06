@@ -6,7 +6,7 @@ ini_set('display_errors', 1);
 // Establish database connection
 $servername = "localhost";
 $username = "root";
-$password = "Praneetha";
+$password = "";
 $dbname = "TaskEase";
 
 $conn = new mysqli($servername, $username, $password, $dbname);

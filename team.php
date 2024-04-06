@@ -13,7 +13,7 @@ $conn = new mysqli($servername, $username, $password, $database);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
-$sql = "SELECT * FROM task WHERE username = ?";
+$sql = "SELECT * FROM team WHERE username = ?";
 $stmt = $conn->prepare($sql);
 
 // Bind parameters and execute the statement
@@ -78,7 +78,7 @@ $conn->close();
                     </a>
                 </div>
                 <div class="bar">
-                    <a href="Filters.html" style="text-decoration:none;">
+                    <a href="Filters.php" style="text-decoration:none;">
                         <button style="display:flex;">
                             <img src="Filter.png" style="width:20px;height:20px;border-radius:50%;margin-right:10px;">
                             <p style="margin-top:0px;font-size:15px;"> Filters  </p>
@@ -116,8 +116,6 @@ $conn->close();
                         echo '<tr>';
                         echo '<td style="width:700px;"><input type="checkbox" style="background-color:#1b1b1b;"> <span style="font-family:Arial;font-size:15px;font-weight:lighter;margin-left:30px;">' . $row["team_name"] . '</span>';
                         echo '<p style="font-family:Arial;font-size:12px;font-weight:lighter;">' . $row["description"] . '</p>';
-                        echo '<p style="font-family:Arial;font-size:12px;font-weight:lighter;color:lightgreen;">' . $row["due_date"] . '</p>';
-                        echo '<p style="margin-left:700px;font-family:Arial;font-size:12px;font-weight:lighter;color:lightgrey;">' . $row["category"] . '</p></td>';
                         echo '</tr>';
                         echo '<tr><td style="width:820px;"><hr style="border:.2px solid #666666;></td></tr>';
                     }
@@ -162,27 +160,14 @@ $conn->close();
                                 <tr>
                                     <td>
                                         <label style="margin-left:10px;font-family:Arial;color:#888888;font-size:14px;margin-bottom:-15px;">Due Date: </label>
-                                        <input name="date" style="margin-left:60px;font-size:10px;padding-left: 10px;padding-right: 10px;padding-top:10px;padding-bottom:10px;border:1px solid #333333;background-color:#000;border-radius: 10px;color:#fff;" type="text" placeholder="yyyy-mm-dd" id="date" required>
-                                        <span id="daterr" style="color:red;"></span>
+                                        <input name="password" style="margin-left:60px;font-size:10px;padding-left: 10px;padding-right: 10px;padding-top:10px;padding-bottom:10px;border:1px solid #333333;background-color:#000;border-radius: 10px;color:#fff;" type="text" placeholder="Enter your Password" id="password" required>
+                                        <span id="pwd" style="color:red;"></span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td><hr style="border:.5px solid #333333;"></td>
                                 </tr>
-                                <tr>
                                     <td>
-                                        <select name="priority" style="font-size:15px;margin-left:10px;margin-bottom:10px;padding-top:10px;padding-bottom:10px;border:none;background-color:#000;border-radius: 10px;color:#fff;">
-                                            <option value="5">Priority</option>
-                                            <option value="1">Priority 1</option>
-                                            <option value="2">Priority 2</option>
-                                            <option value="3">Priority 3</option>
-                                            <option value="4">Priority 4</option>
-                                        </select>
-                                        <span style="margin-left:25px;"></span>
-                                        <select name="category" style="font-size:15px;margin-left:10px;margin-bottom:10px;padding-top:10px;padding-bottom:10px;border:none;background-color:#000;border-radius: 10px;color:#fff;">
-                                            <option value="Inbox">Inbox</option>
-                                            <option value="Project">Project</option>
-                                        </select>
                                         <span style="margin-left:345px;"></span>
                                         <button type="button" style="border-radius:5px;background-color:#888888;border:none;height:30px;color:#fff;" onclick="cancelTask()">Cancel</button>
                                         <input type="submit" value="Add Team" style="margin-left:10px;border-radius:5px;background-color:#ceff1a;width:70px;border:none;height:30px;"onclick="addTask()">
@@ -200,19 +185,20 @@ $conn->close();
             <!-- JavaScript to toggle task form visibility -->
             <script>
                 function validate(){
-                    var dateInput = document.getElementById('date').value;
-                    var msg=document.getElementById('daterr');
-                    var currentDate = new Date();
-                    var inputDate = new Date(dateInput);
-                    var regex = /^\d{4}-\d{2}-\d{2}$/;
+                    var pwd = document.getElementById('password').value;
+                    var msg=document.getElementById('pwd');
                     msg.textContent="";
-                    if (!regex.test(dateInput) || !inputDate ){
-                        msg.textContent="Wrong Date Format";
+                    // Password must be at least 8 characters long
+                    if (password.length < 8) {
+                        msg.textContent="Password must be at least 8 characters long.";
                         return false;
                     }
-                    if(inputDate < currentDate && inputDate.toDateString() != currentDate.toDateString()) {
-                        msg.textContent="Enter present date or upcoming Dates"
-                        return false; 
+    
+                    // Password must contain at least one lowercase letter, one uppercase letter, one number, and one special character
+                    var regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()\-_=+{};:,<.>]).{8,}$/;
+                    if (!regex.test(password)) {
+                        msg.textContent= "Password must contain at least one lowercase letter, one uppercase letter, one number, and one special character.";
+                        return false;
                     }
                     return true;
                 }

@@ -19,17 +19,15 @@ if ($conn->connect_error) {
 // Retrieve form data
 $teamName = $_POST['teamname'];
 $descriptionn = $_POST['des'];
-$priority = $_POST['priority'];
-$category = $_POST['category'];
-$dueDate= $_POST['date'];
+$pwd=$_POST['password'];
 $username=$_SESSION['username'];
 
 // Prepare SQL statement
-$sql = "INSERT INTO team (username, team_name, description, due_date, priority, category) VALUES (?, ?, ?, ?, ?, ?)";
+$sql = "INSERT INTO team (username, team_name, description, pwd) VALUES (?, ?, ?, ?, ?, ?)";
 
 // Prepare and bind parameters
 $stmt = $conn->prepare($sql);
-$stmt->bind_param("ssssis", $username, $teamName, $descriptionn, $dueDate, $priority, $category);
+$stmt->bind_param("ssssis", $username, $teamName, $descriptionn, $pwd);
 if ($stmt->execute()) {
     // Redirect back to front_page.html after adding the task
     header("Location: team.php");
