@@ -38,39 +38,6 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 
-function validateForm() {
-    var password = document.getElementById("password").value;
-    var hasAlphabet = /[a-zA-Z]/.test(password); // Check if password contains at least one alphabet
-    var hasNumber = /[0-9]/.test(password); // Check if password contains at least one number
-    var hasSpecialChar = /[!@#$%&*_-]/.test(password); // Check if password contains at least one special character
-
-    var passwordMsg = document.getElementById("password-validation-msg");
-
-    if (password.length < 8 || password.length > 15) {
-        passwordMsg.textContent = "Password must be between 8 to 15 characters";
-        return false;
-    }
-
-    if (!hasAlphabet) {
-        passwordMsg.textContent = "Password must contain at least one alphabet";
-        return false;
-    }
-
-    if (!hasNumber) {
-        passwordMsg.textContent = "Password must contain at least one number";
-        return false;
-    }
-
-    if (!hasSpecialChar) {
-        passwordMsg.textContent = "Password must contain at least one special character ( ! @ # $ % & * _ - )";
-        return false;
-    }
-
-    // Clear validation message if all criteria are met
-    passwordMsg.textContent = "";
-    return true; // Form is valid
-}
-  
 function err(){
     document.getElementById("error-msggg").value="Wrong Username or Password";
 }

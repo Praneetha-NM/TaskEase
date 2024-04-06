@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Team</title>
-        <link rel="stylesheet" href="homestyle.css">
-    </head>
-    <body style="max-height:50%;overflow-y:hidden;background-color:#000;">
+<head>
+    <title>Team</title>
+    <link rel="stylesheet" href="homestyle.css">
+</head>
+<body style="max-height:50%;overflow-y:hidden;background-color:#000;">
+    <form action="profile3.php" method="POST" onsubmit="return validateForm()">
         <div class="tab" style="height:100px;">
             <div class="slide1" style="width:55%;background-color:#000;">
                 <table style="margin-left:150px;margin-top:30px;">
@@ -22,31 +23,53 @@
             <div class="slide1_1" style="width:50%;height:680px;margin-bottom:550px;background-color:#000;">
                 <br><br><br><br><br><br>
                 <h1 style="margin-bottom:30px;margin-left:160px;color:#fff;font-family:Tahoma;font-size:18px;">How do you plan to use Todoist?</h1>
-                <p style="margin-left:240px;margin-bottom:20px;color:lightgrey;font-family:Tahoma;">Choose all that apply</p>
+                <p style="margin-left:240px;margin-bottom:20px;color:lightgrey;font-family:Tahoma;">Choose one option</p>
                 <br><br>
                 <div class="input-container-radio" style="margin-left:160px;width:300px;border:1px solid #444242;border-radius:10px;">
                     <img src="personal.png" style="border-radius:50%;width:40px;height:40px;margin-right:220px;margin-bottom:-15px;">
-                    <label for="team_name" style="font-size:15px;font-family:Tahoma;">Personal</label>
-                    <input style="font-size:15px;margin-bottom:15px;margin-top:-40px;"type="checkbox" id="teamname" name="teamname" required>
+                    <label for="personal" style="font-size:15px;font-family:Tahoma;">Personal</label>
+                    <input style="font-size:15px;margin-bottom:15px;margin-top:-40px;" type="radio" id="personal" name="plan" value="Personal">
                 </div>
                 <br><br>
                 <div class="input-container-radio" style="margin-left:160px;width:300px;height:40px;border:1px solid #444242;border-radius:10px;">
                     <img src="work.png" style="width:40px;height:40px;margin-right:220px;margin-bottom:-15px;border-radius:50%;">
-                    <label for="team_name" style="font-size:15px;font-family:Tahoma;">Work</label>
-                    <input style="font-size:15px;"type="checkbox" id="teamname" name="teamname"  required>
+                    <label for="work" style="font-size:15px;font-family:Tahoma;">Work</label>
+                    <input style="font-size:15px;" type="radio" id="work" name="plan" value="Work">
                 </div>
                 <br><br>
                 <div class="input-container-radio" style="margin-left:160px;width:300px;height:40px;border:1px solid #444242;border-radius:10px;">
                     <img src="education.png" style="width:40px;height:40px;margin-right:220px;margin-bottom:-15px;border-radius:50%;">
-                    <label for="team_name" style="font-size:15px;font-family:Tahoma;">Education</label>
-                    <input style="font-size:15px;"type="checkbox" id="teamname" name="teamname" required>
+                    <label for="education" style="font-size:15px;font-family:Tahoma;">Education</label>
+                    <input style="font-size:15px;" type="radio" id="education" name="plan" value="Education">
                 </div>
+                <br>
+                <span id="radio-error" style="color:red;font-size:15px;margin-left:240px;"></span>
                 <br><br>
-                <a href="front_page.html" ><input type="submit" value="Launch TaskEase"  style="margin-left:160px;font-size:15px;background-color:#ceff1a;border:none;border-radius:5px;width:300px;color:#000;font-weight:50px;font-family:Tahoma;height:45px;cursor:pointer;"></a>
+                <input type="submit" value="Launch TaskEase" style="margin-left:160px;font-size:15px;background-color:#ceff1a;border:none;border-radius:5px;width:300px;color:#000;font-weight:50px;font-family:Tahoma;height:45px;cursor:pointer;">
             </div>
             <div  class="slide2_1" style="width:50%;height:680px;background-color:#1b1b1b;">
                 <img src="Launch.gif" style="width:500px;height:500px;margin-left:100px;margin-top:85px;">
             </div>
         </div>
-    </body>
+    </form>
+
+    <script>
+        function validateForm() {
+            var radioButtons = document.getElementsByName('plan');
+            var errorSpan = document.getElementById('radio-error');
+            var isChecked = false;
+            for (var i = 0; i < radioButtons.length; i++) {
+                if (radioButtons[i].checked) {
+                    isChecked = true;
+                    break;
+                }
+            }
+            if (!isChecked) {
+                errorSpan.textContent = "Please select an option!";
+                return false;
+            }
+            return true;
+        }
+    </script>
+</body>
 </html>
